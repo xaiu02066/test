@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>用户管理系统 · 登录</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <!-- 品牌区 -->
+    <aside class="auth-brand">
+      <div class="brand-deco"></div>
+      <div class="brand-logo">
+        <div class="brand-mark">U</div>
+        <span>USERVAULT</span>
+      </div>
+      <div class="brand-hero">
+        <h1>统一身份<br />与用户<span class="hl">指挥中心</span></h1>
+        <p>注册、登录与后台用户管理一体化。基于 Flask + SQLite 构建，JWT 鉴权，密码加盐哈希，安全可靠。</p>
+        <div class="brand-feats">
+          <div class="brand-feat"><span class="dot"></span>JWT 鉴权</div>
+          <div class="brand-feat"><span class="dot"></span>角色权限</div>
+          <div class="brand-feat"><span class="dot"></span>实时管理</div>
+        </div>
+      </div>
+      <div class="brand-foot">v1.0 · flask + sqlite · api-driven</div>
+    </aside>
+
+    <!-- 表单区 -->
+    <main class="auth-panel">
+      <div class="auth-card">
+        <h2>欢迎回来</h2>
+        <p class="sub">登录以进入管理控制台，或注册一个新账号。</p>
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">登录</button>
+          <button class="auth-tab" data-tab="register">注册</button>
+        </div>
+
+        <!-- 登录表单 -->
+        <form class="auth-form active" id="loginForm" autocomplete="off">
+          <div class="field">
+            <label>账号</label>
+            <input class="input" type="text" name="account" placeholder="用户名或邮箱" />
+            <div class="field-hint"></div>
+          </div>
+          <div class="field">
+            <label>密码</label>
+            <input class="input" type="password" name="password" placeholder="请输入密码" />
+            <div class="field-hint"></div>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">登 录</button>
+        </form>
+
+        <!-- 注册表单 -->
+        <form class="auth-form" id="registerForm" autocomplete="off">
+          <div class="field">
+            <label>用户名</label>
+            <input class="input" type="text" name="username" placeholder="3-20 位字符" />
+            <div class="field-hint"></div>
+          </div>
+          <div class="field">
+            <label>邮箱</label>
+            <input class="input" type="email" name="email" placeholder="you@example.com" />
+            <div class="field-hint"></div>
+          </div>
+          <div class="field">
+            <label>密码</label>
+            <input class="input" type="password" name="password" placeholder="至少 6 位" />
+            <div class="field-hint"></div>
+          </div>
+          <div class="field">
+            <label>确认密码</label>
+            <input class="input" type="password" name="confirm" placeholder="再次输入密码" />
+            <div class="field-hint"></div>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">创建账号</button>
+        </form>
+
+        <div class="auth-meta">
+          初始管理员 · <b>admin</b> / <b>admin123</b><br />
+          登录后可在后台修改密码
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

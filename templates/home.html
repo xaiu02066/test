@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>个人中心</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="home-wrap">
+    <div class="card home-card">
+      <div class="avatar" id="homeAvatar">U</div>
+      <h1 id="homeName">用户</h1>
+      <p class="greet">你已成功登录，欢迎回来。</p>
+
+      <div class="home-fields">
+        <div class="home-field">
+          <span class="k">用户名</span>
+          <span class="v" id="fUsername">—</span>
+        </div>
+        <div class="home-field">
+          <span class="k">邮箱</span>
+          <span class="v mono" id="fEmail">—</span>
+        </div>
+        <div class="home-field">
+          <span class="k">角色</span>
+          <span class="v" id="fRole">—</span>
+        </div>
+        <div class="home-field">
+          <span class="k">注册时间</span>
+          <span class="v mono" id="fCreated">—</span>
+        </div>
+      </div>
+
+      <button class="btn btn-ghost btn-block" id="logoutBtn">退出登录</button>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap"></div>
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/home.js"></script>
+</body>
+</html>
