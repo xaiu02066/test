@@ -42,4 +42,5 @@ with app.app_context():
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    # host=0.0.0.0：允许手机真机调试通过局域网 IP 访问本机后端
+    app.run(host="0.0.0.0", port=5000, debug=True)
