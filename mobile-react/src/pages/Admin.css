@@ -1,0 +1,113 @@
+.admin-page {
+  padding: 24px 20px 60px;
+}
+
+/* 顶部栏 */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 24px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark {
+  width: 48px; height: 48px; border-radius: 14px;
+  background: linear-gradient(145deg, #FFB877, #E87D3B);
+  color: #fff; font-weight: 800; font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 24px -8px rgba(232, 125, 59, 0.5);
+}
+.brand-name { font-size: 18px; font-weight: 800; color: var(--text); }
+.brand-sub { font-size: 12px; color: var(--text-mute); margin-top: 2px; }
+.logout {
+  font-size: 13px; color: var(--red);
+  padding: 8px 16px; border: 1px solid rgba(220, 96, 74, 0.3);
+  border-radius: 10px; background: var(--red-soft); cursor: pointer;
+}
+
+/* 统计 */
+.stats { display: flex; gap: 10px; margin-bottom: 20px; }
+.stat { flex: 1; padding: 18px 8px; text-align: center; }
+.stat-num { font-size: 28px; font-weight: 800; color: var(--text); }
+.stat-num.green { color: var(--green); }
+.stat-num.red { color: var(--red); }
+.stat-num.accent { color: var(--accent); }
+.stat-label { font-size: 12px; color: var(--text-mute); margin-top: 4px; }
+
+/* 工具栏 */
+.toolbar { padding: 16px; margin-bottom: 20px; }
+.search-row { display: flex; gap: 10px; margin-bottom: 12px; }
+.search-input {
+  flex: 1; height: 42px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 0 14px; font-size: 14px;
+}
+.search-btn {
+  background: var(--accent); color: #fff;
+  padding: 0 20px; height: 42px; line-height: 42px;
+  border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.filter-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.picker {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+  height: 40px; padding: 0 12px; font-size: 13px; color: var(--text-mute);
+  outline: none;
+}
+.add-btn {
+  margin-left: auto; background: var(--accent-soft); color: var(--accent);
+  padding: 0 18px; height: 40px; line-height: 40px;
+  border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer;
+  border: 1px solid var(--accent-line);
+}
+
+/* 列表 */
+.list-title { font-size: 14px; color: var(--text-mute); margin: 0 4px 12px; }
+.empty { text-align: center; padding: 60px 0; color: var(--text-dim); }
+.empty-ic { font-size: 40px; margin-bottom: 12px; }
+
+.user {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px; margin-bottom: 12px;
+}
+.info { flex: 1; min-width: 0; }
+.line1 { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.uname { font-size: 16px; font-weight: 700; color: var(--text); }
+.line2 {
+  font-size: 13px; color: var(--text-mute); margin-top: 6px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.actions { display: flex; flex-direction: column; gap: 6px; }
+.act {
+  font-size: 12px; padding: 5px 12px; border-radius: 8px;
+  text-align: center; min-width: 48px; cursor: pointer;
+}
+.act.toggle { background: var(--bg-soft); color: var(--text-mute); }
+.act.edit { background: var(--accent-soft); color: var(--accent); }
+.act.del { background: var(--red-soft); color: var(--red); }
+
+/* 分页 */
+.pager {
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+  margin-top: 20px;
+}
+.page-btn {
+  padding: 10px 24px; background: var(--bg-elev);
+  border: 1px solid var(--border); border-radius: 10px;
+  font-size: 14px; color: var(--text); cursor: pointer;
+}
+.page-btn.dis { opacity: 0.4; cursor: not-allowed; }
+.page-info { font-size: 14px; color: var(--text-mute); }
+
+.bottom-space { height: 40px; }
+
+/* 弹窗 */
+.modal-mask {
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(90, 50, 20, 0.45);
+  display: flex; align-items: center; justify-content: center;
+  padding: 28px;
+}
+.modal { width: 100%; max-width: 400px; padding: 24px 22px; }
+.modal-title { font-size: 20px; font-weight: 800; margin-bottom: 20px; text-align: center; }
+.m-field { margin-bottom: 16px; }
+.m-label { display: block; font-size: 13px; color: var(--text-mute); margin-bottom: 6px; }
+.modal-btns { display: flex; gap: 12px; margin-top: 12px; }
+.modal-btns button { flex: 1; }

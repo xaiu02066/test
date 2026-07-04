@@ -1,0 +1,169 @@
+/* ============================================================
+   React 移动端 · 明亮温暖设计系统
+   移动端优先，最大宽度 640px 居中
+   ============================================================ */
+
+:root {
+  --bg: #FFF8F0;
+  --bg-elev: #FFFFFF;
+  --bg-soft: #FFEFD8;
+  --border: #EADFC8;
+  --border-soft: #F3E9D3;
+
+  --text: #3A2E22;
+  --text-mute: #8B7355;
+  --text-dim: #B8A48C;
+
+  --accent: #E87D3B;
+  --accent-soft: rgba(232, 125, 59, 0.12);
+  --accent-line: rgba(232, 125, 59, 0.35);
+  --green: #2D9F6A;
+  --green-soft: rgba(45, 159, 106, 0.12);
+  --red: #DC604A;
+  --red-soft: rgba(220, 96, 74, 0.12);
+  --blue: #4A7DC4;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --radius-lg: 22px;
+
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+input {
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+/* 移动端容器：居中 + 最大宽度 */
+.app-container {
+  max-width: 640px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  background:
+    radial-gradient(500px 360px at 90% 0%, rgba(232, 125, 59, 0.08), transparent 60%),
+    var(--bg);
+  padding-bottom: 40px;
+}
+
+/* 卡片 */
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px -8px rgba(200, 150, 90, 0.15);
+}
+
+/* 主按钮 */
+.btn-primary {
+  width: 100%;
+  height: 48px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 10px 24px -10px rgba(232, 125, 59, 0.55);
+  transition: all .15s;
+}
+.btn-primary:active { transform: scale(0.98); opacity: 0.9; }
+.btn-primary:disabled { opacity: 0.55; }
+
+.btn-ghost {
+  width: 100%;
+  height: 44px;
+  background: var(--bg-soft);
+  color: var(--accent);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.btn-danger {
+  background: var(--red-soft);
+  color: var(--red);
+  border: 1px solid rgba(220, 96, 74, 0.3);
+  border-radius: 10px;
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+/* 输入框 */
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 15px;
+  color: var(--text);
+}
+.input:focus { border-color: var(--accent); }
+.input::placeholder { color: var(--text-dim); }
+
+/* 头像 */
+.avatar {
+  width: 48px; height: 48px; border-radius: 14px;
+  background: linear-gradient(145deg, #FFB877, #E87D3B);
+  color: #fff; font-weight: 800; font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.avatar.lg {
+  width: 80px; height: 80px; border-radius: 22px;
+  font-size: 34px;
+  box-shadow: 0 16px 32px -12px rgba(232, 125, 59, 0.55);
+}
+
+/* 徽章 */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.badge.admin { background: var(--accent-soft); color: var(--accent); }
+.badge.user  { background: var(--bg-soft); color: var(--text-mute); }
+.badge.on    { background: var(--green-soft); color: var(--green); }
+.badge.off   { background: var(--red-soft); color: var(--red); }
+
+/* 文本工具类 */
+.text-mute { color: var(--text-mute); }
+.text-dim  { color: var(--text-dim); }
+.text-accent { color: var(--accent); }
+.text-green  { color: var(--green); }
+.text-red    { color: var(--red); }
