@@ -1,0 +1,35 @@
+/* pages/home/home.wxss */
+.page {
+  min-height: 100vh;
+  padding: 48rpx 36rpx 80rpx;
+  background:
+    radial-gradient(600rpx 400rpx at 50% 0%, rgba(232, 125, 59, 0.12), transparent 60%),
+    var(--bg);
+}
+
+/* 头部名片 */
+.hero { text-align: center; margin-bottom: 40rpx; }
+.avatar.lg {
+  width: 140rpx; height: 140rpx; border-radius: 36rpx;
+  font-size: 64rpx; margin: 0 auto 24rpx;
+  box-shadow: 0 20rpx 44rpx -12rpx rgba(232, 125, 59, 0.55);
+}
+.hero-name { font-size: 44rpx; font-weight: 800; color: var(--text); }
+.hero-email { font-size: 26rpx; color: var(--text-mute); margin-top: 8rpx; }
+.hero-badges { display: flex; gap: 12rpx; justify-content: center; margin-top: 18rpx; }
+
+/* 信息卡 */
+.info-card { padding: 12rpx 32rpx; margin-bottom: 48rpx; }
+.info-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 28rpx 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.info-row:last-child { border-bottom: none; }
+.info-key { font-size: 26rpx; color: var(--text-mute); }
+.info-val { font-size: 28rpx; color: var(--text); font-weight: 600; }
+.info-val.green { color: var(--green); }
+.info-val.red { color: var(--red); }
+
+/* 操作 */
+.actions { display: flex; flex-direction: column; gap: 20rpx; }

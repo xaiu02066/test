@@ -1,0 +1,53 @@
+<!-- pages/login/login.wxml —— 登录 / 注册 -->
+<view class="page">
+
+  <!-- 品牌区 -->
+  <view class="brand">
+    <view class="brand-mark">U</view>
+    <view class="brand-name">用户管理</view>
+    <view class="brand-desc">温暖明亮 · 安全可靠的用户系统</view>
+  </view>
+
+  <!-- Tab 切换 -->
+  <view class="tabs">
+    <view class="tab {{tab === 'login' ? 'active' : ''}}" data-tab="login" bindtap="switchTab">登录</view>
+    <view class="tab {{tab === 'register' ? 'active' : ''}}" data-tab="register" bindtap="switchTab">注册</view>
+  </view>
+
+  <!-- 登录表单 -->
+  <view class="card form" wx:if="{{tab === 'login'}}">
+    <view class="field">
+      <text class="label">账号</text>
+      <input class="input" placeholder="用户名或邮箱" placeholder-class="ph"
+             value="{{account}}" data-key="account" bindinput="onInput" />
+    </view>
+    <view class="field">
+      <text class="label">密码</text>
+      <input class="input" placeholder="至少 6 位" placeholder-class="ph" password
+             value="{{password}}" data-key="password" bindinput="onInput" />
+    </view>
+    <button class="btn-primary" loading="{{loading}}" bindtap="submitLogin">登 录</button>
+    <view class="hint">默认管理员 admin / admin123</view>
+  </view>
+
+  <!-- 注册表单 -->
+  <view class="card form" wx:else>
+    <view class="field">
+      <text class="label">用户名</text>
+      <input class="input" placeholder="3-20 位" placeholder-class="ph"
+             value="{{regUsername}}" data-key="regUsername" bindinput="onInput" />
+    </view>
+    <view class="field">
+      <text class="label">邮箱</text>
+      <input class="input" placeholder="name@example.com" placeholder-class="ph"
+             value="{{regEmail}}" data-key="regEmail" bindinput="onInput" />
+    </view>
+    <view class="field">
+      <text class="label">密码</text>
+      <input class="input" placeholder="至少 6 位" placeholder-class="ph" password
+             value="{{regPassword}}" data-key="regPassword" bindinput="onInput" />
+    </view>
+    <button class="btn-primary" loading="{{loading}}" bindtap="submitRegister">注 册</button>
+  </view>
+
+</view>

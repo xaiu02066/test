@@ -1,0 +1,98 @@
+/* app.wxss —— 全局样式（明亮温暖配色，与 Web 端一致） */
+
+page {
+  --bg: #FFF8F0;
+  --bg-elev: #FFFFFF;
+  --bg-soft: #FFEFD8;
+  --border: #EADFC8;
+  --border-soft: #F3E9D3;
+
+  --text: #3A2E22;
+  --text-mute: #8B7355;
+  --text-dim: #B8A48C;
+
+  --accent: #E87D3B;
+  --accent-soft: rgba(232, 125, 59, 0.12);
+  --accent-line: rgba(232, 125, 59, 0.35);
+  --green: #2D9F6A;
+  --green-soft: rgba(45, 159, 106, 0.12);
+  --red: #DC604A;
+  --red-soft: rgba(220, 96, 74, 0.12);
+  --blue: #4A7DC4;
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  font-size: 28rpx;
+  min-height: 100vh;
+}
+
+view, text, input, button, scroll-view, picker { box-sizing: border-box; }
+
+/* 通用卡片 */
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 24rpx -8rpx rgba(200, 150, 90, 0.18);
+}
+
+/* 主按钮 */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 14rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  height: 88rpx;
+  line-height: 88rpx;
+  box-shadow: 0 12rpx 32rpx -12rpx rgba(232, 125, 59, 0.55);
+}
+.btn-primary[disabled] { opacity: 0.55; }
+
+.btn-ghost {
+  background: var(--bg-soft);
+  color: var(--accent);
+  border-radius: 14rpx;
+  font-size: 28rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+}
+
+/* 输入框 */
+.input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12rpx;
+  height: 88rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  color: var(--text);
+}
+.input:focus { border-color: var(--accent); }
+
+/* 标签徽章 */
+.badge {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+}
+.badge.admin { background: var(--accent-soft); color: var(--accent); }
+.badge.user  { background: var(--bg-soft); color: var(--text-mute); }
+.badge.on    { background: var(--green-soft); color: var(--green); }
+.badge.off   { background: var(--red-soft); color: var(--red); }
+
+/* 头像 */
+.avatar {
+  width: 72rpx; height: 72rpx; border-radius: 18rpx;
+  background: linear-gradient(145deg, #FFB877, #E87D3B);
+  color: #fff; font-weight: 800; font-size: 30rpx;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.text-mute { color: var(--text-mute); }
+.text-dim  { color: var(--text-dim); }
+.text-accent { color: var(--accent); }

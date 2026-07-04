@@ -1,0 +1,128 @@
+<!-- pages/admin/admin.wxml —— 管理后台 -->
+<scroll-view class="page" scroll-y>
+
+  <!-- 顶部栏 -->
+  <view class="topbar">
+    <view class="brand">
+      <view class="brand-mark">U</view>
+      <view>
+        <view class="brand-name">用户管理后台</view>
+        <view class="brand-sub">{{me.username}} · 管理员</view>
+      </view>
+    </view>
+    <view class="logout" bindtap="logout">退出</view>
+  </view>
+
+  <!-- 统计概览 -->
+  <view class="stats">
+    <view class="stat card">
+      <view class="stat-num">{{stats.total}}</view>
+      <view class="stat-label">用户总数</view>
+    </view>
+    <view class="stat card">
+      <view class="stat-num green">{{stats.active}}</view>
+      <view class="stat-label">启用</view>
+    </view>
+    <view class="stat card">
+      <view class="stat-num red">{{stats.disabled}}</view>
+      <view class="stat-label">禁用</view>
+    </view>
+    <view class="stat card">
+      <view class="stat-num accent">{{stats.admins}}</view>
+      <view class="stat-label">管理员</view>
+    </view>
+  </view>
+
+  <!-- 工具栏 -->
+  <view class="toolbar card">
+    <view class="search-row">
+      <input class="search-input" placeholder="搜索用户名 / 邮箱" placeholder-class="ph"
+             value="{{keyword}}" bindinput="onKeyword" bindconfirm="onSearch" confirm-type="search" />
+      <view class="search-btn" bindtap="onSearch">搜索</view>
+    </view>
+    <view class="filter-row">
+      <picker class="picker" range="{{roleOpts}}" value="{{roleIdx}}" bindchange="onRoleChange">
+        <view class="picker-inner">角色：{{roleOpts[roleIdx]}} ▾</view>
+      </picker>
+      <picker class="picker" range="{{statusOpts}}" value="{{statusIdx}}" bindchange="onStatusChange">
+        <view class="picker-inner">状态：{{statusOpts[statusIdx]}} ▾</view>
+      </picker>
+      <view class="add-btn" bindtap="openCreate">+ 新增</view>
+    </view>
+  </view>
+
+  <!-- 用户列表 -->
+  <view class="list-title">用户列表（共 {{total}} 人）</view>
+
+  <view class="empty" wx:if="{{!loading && list.length === 0}}">
+    <view class="empty-ic">∅</view>
+    <view>暂无用户数据</view>
+  </view>
+
+  <view class="user card" wx:for="{{list}}" wx:key="id">
+    <view class="avatar">{{item.username[0]}}</view>
+    <view class="info">
+      <view class="line1">
+        <text class="uname">{{item.username}}</text>
+        <text class="badge {{item.role}}">{{item.role === 'admin' ? '管理员' : '用户'}}</text>
+        <text class="badge {{item.status === 1 ? 'on' : 'off'}}">{{item.status === 1 ? '启用' : '禁用'}}</text>
+      </view>
+      <view class="line2">{{item.email}}</view>
+    </view>
+    <view class="actions">
+      <view class="act toggle" data-user="{{item}}" bindtap="toggleStatus">{{item.status === 1 ? '禁用' : '启用'}}</view>
+      <view class="act edit" data-user="{{item}}" bindtap="openEdit">编辑</view>
+      <view class="act del" data-user="{{item}}" bindtap="deleteUser">删除</view>
+    </view>
+  </view>
+
+  <!-- 分页 -->
+  <view class="pager" wx:if="{{totalPages > 0}}">
+    <view class="page-btn {{page <= 1 ? 'dis' : ''}}" bindtap="prevPage">上一页</view>
+    <view class="page-info">{{page}} / {{totalPages}}</view>
+    <view class="page-btn {{page >= totalPages ? 'dis' : ''}}" bindtap="nextPage">下一页</view>
+  </view>
+
+  <view class="bottom-space"></view>
+
+  <!-- 新增/编辑弹窗 -->
+  <view class="modal-mask" wx:if="{{modalShow}}" bindtap="closeModal">
+    <view class="modal card" catchtap>
+      <view class="modal-title">{{modalMode === 'create' ? '新增用户' : '编辑用户'}}</view>
+
+      <view class="m-field">
+        <text class="m-label">用户名</text>
+        <input class="input" placeholder="3-20 位" placeholder-class="ph"
+               value="{{form.username}}" data-key="username" bindinput="onFormInput" />
+      </view>
+      <view class="m-field">
+        <text class="m-label">邮箱</text>
+        <input class="input" placeholder="name@example.com" placeholder-class="ph"
+               value="{{form.email}}" data-key="email" bindinput="onFormInput" />
+      </view>
+      <view class="m-field">
+        <text class="m-label">密码</text>
+        <input class="input" placeholder="{{modalMode === 'edit' ? '留空则不修改' : '至少 6 位'}}" placeholder-class="ph" password
+               value="{{form.password}}" data-key="password" bindinput="onFormInput" />
+      </view>
+      <view class="m-field">
+        <text class="m-label">角色</text>
+        <picker range="{{roleOpts}}" value="{{formRoleIdx}}" bindchange="onFormRoleChange" wx:if="{{roleOpts.length > 1}}">
+          <view class="picker-inner">角色：{{roleOpts[formRoleIdx]}} ▾</view>
+        </picker>
+      </view>
+      <view class="m-field">
+        <text class="m-label">状态</text>
+        <picker range="{{statusOpts}}" value="{{formStatusIdx}}" bindchange="onFormStatusChange" wx:if="{{statusOpts.length > 1}}">
+          <view class="picker-inner">状态：{{statusOpts[formStatusIdx]}} ▾</view>
+        </picker>
+      </view>
+
+      <view class="modal-btns">
+        <button class="btn-ghost" bindtap="closeModal">取消</button>
+        <button class="btn-primary" bindtap="submitForm">保存</button>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

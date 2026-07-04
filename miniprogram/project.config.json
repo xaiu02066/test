@@ -1,0 +1,16 @@
+{
+  "description": "用户管理小程序",
+  "miniprogramRoot": "./",
+  "projectname": "user-management-miniprogram",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.0.0"
+}
